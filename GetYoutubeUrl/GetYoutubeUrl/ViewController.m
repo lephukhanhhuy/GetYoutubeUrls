@@ -33,10 +33,12 @@
     
     [textView setText:@"Results will show here"];
     
-//#error Enter your url here
+
     //test link 1: http://youtu.be/64u34VdrU74
     //test link 2: http://www.youtube.com/watch?v=vqjGEb4QtYg  // rYEDA3JcQqw : VEVO!!!
-    self.yourUrl = @"http://www.youtube.com/watch?v=rYEDA3JcQqw";
+
+#error Enter your url here
+    self.yourUrl = @"http://www.youtube.com/watch?v=vqjGEb4QtYg";
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
