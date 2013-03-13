@@ -12,6 +12,7 @@ function getVideoId(url)
     }
     return -1;
 }
+
 function getAllVideoUrls(data)
 {
     var results = [];

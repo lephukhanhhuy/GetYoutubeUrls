@@ -33,10 +33,10 @@
     
     [textView setText:@"Results will show here"];
     
-#error Enter your url here
+//#error Enter your url here
     //test link 1: http://youtu.be/64u34VdrU74
-    //test link 2: http://www.youtube.com/watch?v=0NxusDGPSIE
-    self.yourUrl = @"http://youtu.be/64u34VdrU74";
+    //test link 2: http://www.youtube.com/watch?v=vqjGEb4QtYg  // rYEDA3JcQqw : VEVO!!!
+    self.yourUrl = @"http://www.youtube.com/watch?v=rYEDA3JcQqw";
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
@@ -47,28 +47,44 @@
 - (void) btnClick
 {
     [status setText:@"Getting urls..."];
-    NSString *function = [[NSString alloc] initWithFormat:@"getVideoId('%@')",self.yourUrl];
-    NSString *result = [web stringByEvaluatingJavaScriptFromString:function];
-    NSLog(@"== %@",result);
-    NSString* dataUrl = [NSString stringWithFormat:@"http://www.youtube.com/get_video_info?video_id=%@&asv=2",result];
-    NSLog(@"dataUrl: %@",dataUrl);
-    NSString * data = [NSString stringWithContentsOfURL:[NSURL URLWithString:dataUrl] encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"data: %@",data);
+    NSString *jsGetVideoId = [[NSString alloc] initWithFormat:@"getVideoId('%@')",self.yourUrl];
+    NSString *videoId = [web stringByEvaluatingJavaScriptFromString:jsGetVideoId];
+    NSLog(@"== %@",videoId);
+    NSString* urlData = [NSString stringWithFormat:@"http://www.youtube.com/get_video_info?video_id=%@&asv=2",videoId];
+    NSLog(@"dataUrl: %@",urlData);
+    NSString * data = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlData] encoding:NSUTF8StringEncoding error:nil];    
+    NSString *jsGetUrls = [[NSString alloc] initWithFormat: @"getAllVideoUrls('%@')",data];
     
-    NSString *function2 = [[NSString alloc] initWithFormat: @"getAllVideoUrls('%@')",data];
-    id re = [web stringByEvaluatingJavaScriptFromString:function2];
-    NSLog(@"=== %@",re);
-    id jsonObject = [NSJSONSerialization JSONObjectWithData:[re dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+    id results = [web stringByEvaluatingJavaScriptFromString:jsGetUrls];
+    NSLog(@"results: %@",results);
     
-    // Ket qua o day:
-    if ([jsonObject isKindOfClass:[NSArray class]])
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:[results dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+    if (jsonObject!= nil)
     {
-        for (NSDictionary* dict in jsonObject) {
-            NSLog(@"Item: %@",dict);
+        // JSON results:
+        if ([jsonObject isKindOfClass:[NSArray class]])
+        {
+            for (NSDictionary* dict in jsonObject) {
+                NSLog(@"Item: %@",dict);
+            }
         }
+        [textView setText:[NSString stringWithFormat:@"%@",jsonObject]];
+        [status setText:@"Done! View log to see results..."];
     }
-    [textView setText:[NSString stringWithFormat:@"%@",jsonObject]];
-    [status setText:@"Done! View log to see results..."];
+    else// TODO: may be VEVO video, youtube api canot get data, use another solution
+    {
+        [status setText:@"ERROR"];
+        [textView setText:@"TODO: may be VEVO video, youtube api canot get data, use another solution"];
+        NSLog(@"TODO: may be VEVO video, youtube api canot get data, use another solution");
+        
+        // Get full html page
+//        NSString * data = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=rYEDA3JcQqw"] encoding:NSASCIIStringEncoding error:nil];
+        
+        //get url_encoded_fmt_stream_map and do something
+        
+        
+    }
+    
 }
 - (void)didReceiveMemoryWarning
 {
