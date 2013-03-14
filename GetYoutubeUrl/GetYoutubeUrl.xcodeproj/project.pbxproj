@@ -12,6 +12,7 @@
 		E988035A16EF3BAA00EE0931 /* new.js in Sources */ = {isa = PBXBuildFile; fileRef = E988034316EF3BAA00EE0931 /* new.js */; };
 		E988035D16EF3CA600EE0931 /* json.js in Resources */ = {isa = PBXBuildFile; fileRef = E988032E16EF3BAA00EE0931 /* json.js */; };
 		E988037016EF3CA600EE0931 /* new.js in Resources */ = {isa = PBXBuildFile; fileRef = E988034316EF3BAA00EE0931 /* new.js */; };
+		E9A2ACD316F09165009C6A05 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A2ACD216F09165009C6A05 /* NSString+URLEncoding.m */; };
 		E9A53F5416EF04CF00430A25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A53F5316EF04CF00430A25 /* UIKit.framework */; };
 		E9A53F5616EF04CF00430A25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A53F5516EF04CF00430A25 /* Foundation.framework */; };
 		E9A53F5816EF04CF00430A25 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A53F5716EF04CF00430A25 /* CoreGraphics.framework */; };
@@ -29,6 +30,8 @@
 		E988032B16EF3BAA00EE0931 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		E988032E16EF3BAA00EE0931 /* json.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = json.js; sourceTree = "<group>"; };
 		E988034316EF3BAA00EE0931 /* new.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = new.js; sourceTree = "<group>"; };
+		E9A2ACD116F09165009C6A05 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		E9A2ACD216F09165009C6A05 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		E9A53F5016EF04CF00430A25 /* GetYoutubeUrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetYoutubeUrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A53F5316EF04CF00430A25 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E9A53F5516EF04CF00430A25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -107,6 +110,8 @@
 				E9A53F6C16EF04CF00430A25 /* ViewController.m */,
 				E9A53F6E16EF04CF00430A25 /* ViewController.xib */,
 				E9A53F5A16EF04CF00430A25 /* Supporting Files */,
+				E9A2ACD116F09165009C6A05 /* NSString+URLEncoding.h */,
+				E9A2ACD216F09165009C6A05 /* NSString+URLEncoding.m */,
 			);
 			path = GetYoutubeUrl;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				E9A53F6D16EF04CF00430A25 /* ViewController.m in Sources */,
 				E988034716EF3BAA00EE0931 /* json.js in Sources */,
 				E988035A16EF3BAA00EE0931 /* new.js in Sources */,
+				E9A2ACD316F09165009C6A05 /* NSString+URLEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

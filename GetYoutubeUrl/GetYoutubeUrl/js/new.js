@@ -12,7 +12,6 @@ function getVideoId(url)
     }
     return -1;
 }
-
 function getAllVideoUrls(data)
 {
     var results = [];
@@ -30,9 +29,7 @@ function getAllVideoUrls(data)
 }
 
 function parse_str (str, array)
-{
-    
-    
+{   
   var strArr = String(str).replace(/^&/, '').replace(/&$/, '').split('&'),
     sal = strArr.length,
     i, j, ct, p, lastObj, obj, lastIter, undef, chr, tmp, key, value,

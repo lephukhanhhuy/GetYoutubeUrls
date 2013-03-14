@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSString+URLEncoding.h"
 
 @interface ViewController : UIViewController<UIWebViewDelegate>
 {
