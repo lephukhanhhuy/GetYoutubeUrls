@@ -37,7 +37,7 @@
     //test link 1: http://youtu.be/64u34VdrU74
     //test link 2: http://www.youtube.com/watch?v=lMrCW07XBS8  lMrCW07XBS8 // rYEDA3JcQqw : VEVO!!!
 
-//#error Enter your url here
+#error Enter your url here
     self.yourUrl = @"http://www.youtube.com/watch?v=rYEDA3JcQqw";
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
